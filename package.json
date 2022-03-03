@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "electron ."
+  },
+  "youtubeChannelId":"UC-Muz8kWB3bVoKu_XX2ukAg",
+  "dependencies": {
+    "@freetube/youtube-chat": "^1.1.2",
+    "@twurple/auth": "^5.0.18",
+    "@twurple/chat": "^5.0.18"
+  },
+  "devDependencies": {
+    "electron": "^17.1.0"
+  }
+}

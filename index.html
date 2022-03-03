@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html style="background:#33274f;color: rgb(255, 255, 255);font-family: 'Roboto', sans-serif;">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body>
+    <div>Чат:</div>
+    <a id="messages" style="
+    width: 100%;
+    color:aliceblue;
+    position: relative;
+"></a>
+</body>
+<script>
+    let events = require('./events');
+    
+    let el = document.getElementById('messages');
+    events.on('data',(imgSrc, user, txt)=>{
+        let newline = document.createElement('div');
+        let img = document.createElement('img');
+        img.src = imgSrc
+        img.style.width='16px'
+        img.addEventListener('click',()=>{ 
+            el.removeChild(newline)
+        })
+        newline.appendChild(img)
+        let autorName = document.createElement('a');
+        autorName.style.marginRight='5px'
+        autorName.style.color='#d5807c'
+        autorName.innerHTML = user+':';
+        newline.appendChild(autorName);
+        let textElement = document.createElement('a')
+        textElement.innerHTML=txt
+        textElement.style.whiteSpace='break-spaces'
+        newline.appendChild(textElement)
+
+
+        el.appendChild(newline);
+        
+    })
+    
+</script>
+</html>
